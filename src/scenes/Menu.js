@@ -32,6 +32,9 @@ class Menu extends Phaser.Scene {
         + borderPadding, 'Press <-- for Novice or --> for Expert', 
         menuConfig).setOrigin(0.5);
 
+        //display high score
+        this.add.text(game.config.width/2, game.config.height - borderUISize - borderPadding, "HIGH SCORE: " + highScore, menuConfig).setOrigin(0.5);
+
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
     }
@@ -39,7 +42,7 @@ class Menu extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(keyLEFT)) {
             //easy mode
             game.settings = {
-                spaceshipSpeed: 3,
+                spiritSpeed: 3,
                 gameTimer: 60000
             }
             this.sound.play('sfx_select');
@@ -48,7 +51,7 @@ class Menu extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(keyRIGHT)) {
             //hard mode
             game.settings = {
-                spaceshipSpeed: 4,
+                spiritSpeed: 4,
                 gameTimer: 45000
             }
             this.sound.play('sfx_select');
