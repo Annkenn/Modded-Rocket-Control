@@ -17,10 +17,12 @@ let borderPadding = borderUISize / 3;
 
 
 //Points Breakdown
+//Display high score (5 pts)
 //Parallax Scrolling (10 pts)
+//Animated spaceships (10 pts) 
+//New spaceship type (20 pts)
 
-//To Do
-//new spaceship type (20 pts) X
-//animated spaceships (10 pts) X
+
+//To Do 
 //replace all assets with new theme (60 pts) X
 

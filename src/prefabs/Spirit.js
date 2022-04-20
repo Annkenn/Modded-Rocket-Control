@@ -1,9 +1,13 @@
 class Spirit extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, texture, frame, pointValue) {
+    constructor(scene, x, y, texture, frame, pointValue, type) {
         super(scene, x, y, texture, frame);
         scene.add.existing(this);     //add to existing scene
         this.points = pointValue;     //store pointValue
+        this.type = type;
         this.moveSpeed = game.settings.spiritSpeed;           //pixels per frame
+        if (this.type == 2) {
+            this.moveSpeed = game.settings.spiritSpeed + 1;
+        };
         //animation
         this.anims.create({
             key: 'spiritanim',
@@ -12,7 +16,18 @@ class Spirit extends Phaser.GameObjects.Sprite {
             frameRate: 7,
             repeat: -1
         });
-        this.anims.play('spiritanim');
+        this.anims.create({
+            key: 'speedspiritanim',
+            frames: this.anims.generateFrameNumbers('speedspiritanim', {start:0, end: 1,
+            first: 0}),
+            frameRate: 7,
+            repeat: -1
+        });
+        if (this.type == 1) {
+            this.anims.play('spiritanim');
+        } else {
+            this.anims.play('speedspiritanim');
+        };
     }
 
     update() {

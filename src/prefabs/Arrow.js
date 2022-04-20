@@ -26,11 +26,11 @@ class Arrow extends Phaser.GameObjects.Sprite {
             this.sfxRocket.play();  //play sfx
         }
         //if fired move up
-        if(this.isFiring && this.y  >= borderUISize * 3 + borderPadding) {
+        if(this.isFiring && this.y  >= borderUISize + borderPadding) {
             this.y -= this.moveSpeed;
         }
         //reset on miss
-        if(this.y <= borderUISize * 3  + borderPadding) {
+        if(this.y <= borderUISize + borderPadding) {
             this.reset();
         }
     }
